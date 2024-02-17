@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    background-image:url(https://img.freepik.com/free-photo/white-texture_1160-786.jpg?w=996&t=st=1708074329~exp=1708074929~hmac=aa3a6adb083bc5c19bbf89ccd58bf393e6d39c88dc8cc775d70cd2049278b6b1) ;
+   
+}
