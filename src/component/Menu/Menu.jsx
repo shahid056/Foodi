@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import cart from "../../assets/cart1.png";
+import Data from "../../store/Data-store";
+
 /* eslint-disable react/prop-types */
-function Menu({ data, handleid }) {
+function Menu({ handleid }) {
+  const data = useContext(Data);
+
   return (
     <>
       <div className="w-full flex overflow-hidden flex-wrap justify-between p-10">

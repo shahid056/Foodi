@@ -4,12 +4,13 @@ import Searchbar from "./component/Searchbar";
 import Nav from "./component/header/Nav";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Data from "../src/store/Data-store";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
 function App() {
   const [data, setData] = useState([]);
   const [param, setParam] = useState("egg");
-  const [id, setID] = useState("52952");
+  const [id, setID] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,17 +36,19 @@ function App() {
   };
   return (
     <>
-      <div className="mix-blend-multiply">
-        <Nav />
-        <Searchbar HandlingParam={HandlingParam} />
-        <Routes>
-          <Route
-            path="/"
-            element={<Menu data={data} handleid={handleid} />}
-          ></Route>
-          <Route path="/detail" element={<Recipe id={id} />}></Route>
-        </Routes>
-      </div>
+      <Data.Provider value={data}>
+        <div className="mix-blend-multiply">
+          <Nav />
+          <Searchbar HandlingParam={HandlingParam} />
+          <Routes>
+            <Route
+              path="/"
+              element={<Menu data={data} handleid={handleid} />}
+            ></Route>
+            <Route path="/detail" element={<Recipe id={id} />}></Route>
+          </Routes>
+        </div>
+      </Data.Provider>
     </>
   );
 }
